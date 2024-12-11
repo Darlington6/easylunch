@@ -1,39 +1,23 @@
-.App {
-  text-align: center;
-}
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import StarterPage from './components/starterpage';
+import Signup from './components/signup';
+import Login from './components/login';
+import ForgotPassword from './components/forgotpassword';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<StarterPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="*" element={<div>Page Not Found</div>} />
+      </Routes>
+    </Router>
+  );
+};
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+export default App;
 
